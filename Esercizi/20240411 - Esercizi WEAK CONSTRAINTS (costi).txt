@@ -1,0 +1,268 @@
+Si consideri ora un programma P (non è necessario sapere come è fatto) i cui answer set sono già stati calcolati e 
+sono riportati di seguito. 
+
+A1: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), carnevale(2), carnevale(3)}
+A2: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), carnevale(2), e(3)}
+A3: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), e(2), carnevale(3)}
+A4: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), e(2), e(3)}
+
+Si supponga di aggiungere i seguenti weak constraint al programma P. Si calcoli quale sarebbe il costo di ognuno 
+degli answer set riportati sopra, e si indichi quello ottimo, commentando il procedimento seguito.
+
+
+:~ #sum { Y,X : anacardi(X,Y), e(Y) } = N, pesto(Z,N). [N@1, Z,N]
+:~ e(X). [1@X, X]
+
+
+SOLUZIONE:
+
+
+A1: Cost ([Weight:Level]): <[0:1],[0:2],[0:3]>  <<-- OTTIMO
+=================================================================================================================================
+
+A1: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), carnevale(2), carnevale(3)}
+
+
+A1 è tutto 0 perchè se prendiamo il primo weak 
+:~ #sum { Y,X : anacardi(X,Y), e(Y) } = N, pesto(Z,N). [N@1, Z,N]
+in questo caso avendo la somma sempre 0 , N sara 0 , quindi il peso a livello sara sempre 0 
+Nel secondo weak 
+:~ e(X). [1@X, X]
+non avendo nessun e nel AS sarà sempre 0.
+
+=================================================================================================================================
+
+
+
+A2: Cost ([Weight:Level]): <[3:1],[0:2],[1:3]>
+=================================================================================================================================
+
+A2: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), carnevale(2), e(3)}
+
+Nel primo weak: 
+:~ #sum { Y,X : anacardi(X,Y), e(Y) } = N, pesto(Z,N). [N@1, Z,N]
+anacardi(1,2) non rispetta nulla 
+anacardi(1,3) avendo e(3) avremo N = 3, e avendo anche pesto (1,3) peso quindi sara 3 
+
+
+:~ e(X). [1@X, X]
+e(2) non c'è 
+e(3) esiste quindi avremo un peso livello 3
+
+
+
+=================================================================================================================================
+
+
+A3: Cost ([Weight:Level]): <[2:1],[1:2],[0:3]>
+
+=================================================================================================================================
+
+A3: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), e(2), carnevale(3)}
+Primo weak:
+:~ #sum { Y,X : anacardi(X,Y), e(Y) } = N, pesto(Z,N). [N@1, Z,N]
+N sara uguale a 2 --> anarcardi(1,2) e(2), inoltre abbiamo anche pesto(1,2), quindi avremo 2 pesi al livello 1
+:~ e(X). [1@X, X]
+abbiamo e(2), abbiamo un peso di livello 2
+non abbiamo e(3)
+
+=================================================================================================================================
+
+
+A4: Cost ([Weight:Level]): <[0:1],[1:2],[1:3]>
+
+=================================================================================================================================
+A4: {noccioline(3), pesto(1,2), pesto(1,3), pinoli(2), pinoli(3), anacardi(1,2), anacardi(1,3), e(2), e(3)}
+:~ #sum { Y,X : anacardi(X,Y), e(Y) } = N, pesto(Z,N). [N@1, Z,N]
+N = 5 perchè --> anacardi(1,2)  e(2), inoltre abbiamo anche pesto(1,2)  quindi avremo costo 2 a livello 1, inoltre 
+                 anacardi(1,3)  e(3), inoltre abbiamo anche pesto(1,3), quindi sommati ai 2 abbiamo costo 5 a livello 1
+PROF SBAGLIATO
+
+#sum{<2,1>, <3,1>} --> 5 
+
+:~ e(X). [1@X, X]
+
+abbiamo e(2) quindi 1:2 bene
+abbiamo e(3) quindi 1:3 bene 
+
+
+=================================================================================================================================
+
+
+
+=================================================
+=================================================
+=================================================
+
+
+
+Si consideri ora un programma P (non è necessario sapere come è fatto) i cui answer set sono già stati calcolati e sono riportati di seguito. 
+
+A1: {c(9), d(9,9), d(10,9), d(9,10), d(10,10), b(1), d(1,9), d(1,10)}
+A2: {c(1), c(9), d(9,10), d(10,10), b(1), d(1,10)}
+A3: {c(1), d(9,9), d(10,9), c(10), b(1), d(1,9)}
+A4: {c(1), c(9), c(10), b(1)}
+
+Si supponga di aggiungere i seguenti weak constraint al programma P. Si calcoli quale sarebbe il costo di ognuno degli answer set riportati sopra: si riporti il costo dettagliato per ciascun answer set e si indichi quello ottimo, commentando adeguatamente il procedimento seguito.
+
+:~ c(X), d(Y,X). [1@2, X,Y]
+:~ c(X), c(Y), not d(X,Y). [1@1, X,Y]
+
+SOLUZIONE:
+A1: Cost ([Weight:Level]): <[0:1],[3:2]>
+=================================================================================================================================
+
+A1: {c(9), d(9,9), d(10,9), d(9,10), d(10,10), b(1), d(1,9), d(1,10)}
+
+Primo weak: 
+:~ c(X), d(Y,X). [1@2, X,Y]
+
+c(9) -> d(10,9), d(1,9), d(9,9)
+
+Per adesso abbiamo 3 costo a livello 2 
+
+Secondo weak: 
+:~ c(X), c(Y), not d(X,Y). [1@1, X,Y]
+Nessuno qui, quindi restiamo con 3:2 
+
+OK
+
+
+=================================================================================================================================
+=================================================================================================================================
+A2: Cost ([Weight:Level]): <[4:1],[0:2]> <<-- OTTIMO
+
+=================================================================================================================================
+A2: {c(1), c(9), d(9,10), d(10,10), b(1), d(1,10)}
+
+Primo weak: 
+:~ c(X), d(Y,X). [1@2, X,Y]
+Livello 2 niente, nessuna correlazione con 1 e 9.
+ 
+Secondo weak:
+:~ c(X), c(Y), not d(X,Y). [1@1, X,Y]
+
+{<c(1), c(9)>, <c(9), c(1)>, <c(1),c(1)>, <c(9),c(9)>} abbiamo 4:1. (nessuna coppia x,y degli c è presente in d)  
+
+
+
+=================================================================================================================================
+=================================================================================================================================
+A3: Cost ([Weight:Level]): <[4:1],[0:2]> <<-- OTTIMO
+
+=================================================================================================================================
+A3: {c(1), d(9,9), d(10,9), c(10), b(1), d(1,9)}
+
+Primo weak: 
+:~ c(X), d(Y,X). [1@2, X,Y]
+Nessun livello 2 
+
+Secondo weak:
+:~ c(X), c(Y), not d(X,Y). [1@1, X,Y]
+
+combinando c1 e c10 vediamo che non esistono d(x,y ) con tutte le combinazioni di c, 
+quindi abbiamo 4:1 
+
+
+=================================================================================================================================
+=================================================================================================================================
+
+A4: Cost ([Weight:Level]): <[9:1],[0:2]>
+
+=================================================================================================================================
+
+A4: {c(1), c(9), c(10), b(1)}
+
+Primo weak: 
+:~ c(X), d(Y,X). [1@2, X,Y]
+Nessun livello 2 non avendo d 
+
+Secondo weak:
+:~ c(X), c(Y), not d(X,Y). [1@1, X,Y]
+
+Abbiamo 9 livello 1 poichè non avendo d sono tutti ok, quindi è 3^3
+=================================================================================================================================
+
+
+
+
+=================================================
+=================================================
+=================================================
+
+
+
+Si consideri ora un programma P (non è necessario sapere come è fatto) i cui answer set sono già stati calcolati e sono riportati di seguito. 
+
+AS1 {p(0,3), q(3), q(5), r(3,5), p(5,5)}
+AS2 {p(0,3), q(3), q(5), r(3,5), q(4), t(5), t(4)}
+AS3 {p(0,3), q(3), q(5), r(3,5), q(4), t(5), p(4,4)}
+
+Si supponga di aggiungere i seguenti weak constraint al programma P. Si calcoli quale sarebbe il costo di ognuno degli answer set riportati sopra: si riporti il costo dettagliato per ciascun answer set e si indichi quello ottimo, commentando adeguatamente il procedimento seguito.
+
+:~p(Z,X), r(X,Y), t(Y). [Y@1,X,Y,Z]
+:~q(X), p(X,X). [X@2]
+:~t(X). [1@1,X]
+
+
+SOLUZIONE:
+AS1: Cost ([Weight:Level]): <[0:1],[5:2]>
+
+=================================================================================================================================
+AS1 {p(0,3), q(3), q(5), r(3,5), p(5,5)}
+
+Primo Weak:
+:~p(Z,X), r(X,Y), t(Y). [Y@1,X,Y,Z]
+Qui niente che non abbiamo t 
+
+Secondo Weak:
+:~q(X), p(X,X). [X@2]
+q(5), p(5,5) --> 5:2 
+Terzo Weak:
+:~t(X). [1@1,X]
+qui niente 
+
+Ok 
+=================================================================================================================================
+=================================================================================================================================
+
+AS2: Cost ([Weight:Level]): <[7:1]>         <<-- OTTIMO
+=================================================================================================================================
+AS2 {p(0,3), q(3), q(5), r(3,5), q(4), t(5), t(4)}
+
+Primo Weak:
+:~p(Z,X), r(X,Y), t(Y). [Y@1,X,Y,Z]
+p(0,3), r(3,5), t(5) --> 5:1 
+
+Secondo Weak:
+:~q(X), p(X,X). [X@2]
+niente 
+
+
+Terzo Weak:
+:~t(X). [1@1,X]
+t(5), t(4) sono due sommiamo alla precendente --> 7:1 
+
+Ok
+=================================================================================================================================
+=================================================================================================================================
+
+AS3: Cost ([Weight:Level]): <[6:1],[4:2]> 
+=================================================================================================================================
+
+AS3 {p(0,3), q(3), q(5), r(3,5), q(4), t(5), p(4,4)}
+
+Primo Weak:
+:~p(Z,X), r(X,Y), t(Y). [Y@1,X,Y,Z]
+p(0,3), r(3,5), t(5) --> 5:1 
+
+Secondo Weak:
+:~q(X), p(X,X). [X@2]
+q(4), p(4,4) --> 4:2 
+
+Terzo Weak:
+:~t(X). [1@1,X]
+t(5) sommiamo al precendente --> 6:1
+
+OK
+=================================================================================================================================
