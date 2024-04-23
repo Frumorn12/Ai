@@ -16,7 +16,10 @@ public class Main {
 
     private static Handler handler;
 
-    private int[][] matrice = {
+    private static String encodingResource="encodings/regine";
+
+
+    public static int[][] matrice = {
             {0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0},
@@ -32,6 +35,52 @@ public class Main {
     public static void main(String[] args) {
 
         handler = new DesktopHandler(new DLV2DesktopService("lib/dlv2"));
+        try {
+            ASPMapper.getInstance().registerClass(Cell.class);
+        } catch (ObjectNotValidException | IllegalAnnotationException e1) {
+            e1.printStackTrace();
+        }
+
+        //Specifichiamo il programma logico tramite file
+        InputProgram encoding= new ASPInputProgram();
+        encoding.addFilesPath(encodingResource);
+
+
+        //Aggiungiamo all'handler il programma logico
+        handler.addProgram(encoding);
+
+        //L'handler invoca DLV2 in modo SINCRONO dando come input il programma logico e i fatti
+        Output o =  handler.startSync();
+
+        AnswerSets answersets = (AnswerSets) o;
+
+        for(AnswerSet a:answersets.getAnswersets()){
+            try {
+                System.out.println("CAZZONE");
+                for(Object obj:a.getAtoms()){
+                    System.out.println(obj);
+                    //Scartiamo tutto ci� che non � un oggetto della classe Cell
+                    if(!(obj instanceof Cell)) continue;
+                    //Convertiamo in un oggetto della classe Cell e impostiamo il valore di ogni cella
+                    //nella matrice rappresentante la griglia del Sudoku
+                    Cell cell= (Cell) obj;
+                    matrice[cell.getRow()][cell.getColumn()] = 1;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        //printo la matrice
+
+        for(int i=0;i<8;i++){
+            for(int j=0;j<8;j++){
+                System.out.print(matrice[i][j] + " ");
+            }
+            System.out.println();
+        }
+
 
 
 

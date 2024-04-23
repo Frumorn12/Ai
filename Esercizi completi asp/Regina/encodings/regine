@@ -1,0 +1,6 @@
+#show cell/2.
+
+pos(0..7).
+
+cell(X,Y) | nocell(X,Y) :- pos(X), pos(Y).
+
