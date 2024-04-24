@@ -4,3 +4,13 @@ pos(0..7).
 
 cell(X,Y) | nocell(X,Y) :- pos(X), pos(Y).
 
+%% devono essere 8 celle
+
+:- not #count{X,Y:cell(X,Y)} = 8.
+
+:- pos(Y), not #count{X:cell(X,Y)} = 1.
+:- pos(X), not #count{Y:cell(X,Y)} = 1.
+
+%% se esiste una cella, sulla diagonale non possono esistere altre celle
+
+:- cell(X,Y), cell(X1,Y1), X1 != X, Y1 != Y, X1-X = Y1-Y.

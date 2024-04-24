@@ -56,13 +56,12 @@ public class Main {
 
         for(AnswerSet a:answersets.getAnswersets()){
             try {
-                System.out.println("CAZZONE");
                 for(Object obj:a.getAtoms()){
                     System.out.println(obj);
                     //Scartiamo tutto ci� che non � un oggetto della classe Cell
-                    if(!(obj instanceof Cell)) continue;
+                        if(!(obj instanceof Cell)) continue;
                     //Convertiamo in un oggetto della classe Cell e impostiamo il valore di ogni cella
-                    //nella matrice rappresentante la griglia del Sudoku
+                    //neljla matrice rappresentante la griglia del Sudoku
                     Cell cell= (Cell) obj;
                     matrice[cell.getRow()][cell.getColumn()] = 1;
                 }

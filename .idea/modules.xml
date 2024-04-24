@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Ai.iml" filepath="$PROJECT_DIR$/.idea/Ai.iml" />
       <module fileurl="file://$PROJECT_DIR$/Regina/Regina.iml" filepath="$PROJECT_DIR$/Regina/Regina.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Esercizi completi asp/TileCovering/TileCovering.iml" filepath="$PROJECT_DIR$/Esercizi completi asp/TileCovering/TileCovering.iml" />
     </modules>
   </component>
 </project>
