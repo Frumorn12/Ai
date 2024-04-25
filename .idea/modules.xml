@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Ai.iml" filepath="$PROJECT_DIR$/.idea/Ai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Esercizi completi asp/ChromaticNumber/ChromaticNumber.iml" filepath="$PROJECT_DIR$/Esercizi completi asp/ChromaticNumber/ChromaticNumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/Regina/Regina.iml" filepath="$PROJECT_DIR$/Regina/Regina.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Esercizi completi asp/SchurNumber/SchurNumber.iml" filepath="$PROJECT_DIR$/Esercizi completi asp/SchurNumber/SchurNumber.iml" />
       <module fileurl="file://$PROJECT_DIR$/Esercizi completi asp/TileCovering/TileCovering.iml" filepath="$PROJECT_DIR$/Esercizi completi asp/TileCovering/TileCovering.iml" />
     </modules>
   </component>

@@ -1,0 +1,36 @@
+%% Schur
+
+
+
+
+
+assegnamento(K,N) | notass(K,N) :-  s(K), numero_n(N).
+
+
+%% Tutti i numeri devono essere presenti in assegnamento
+%% Devono essere coperti tutti gli insiemi
+:- numero_n(N), not #count{K: assegnamento(K,N)}>=1.
+:- s(K), not #count{N: assegnamento(K,N)}>=1.
+
+%% Non possono esserci gli stessi numeri in due insiemi diversi
+:- assegnamento(K,N), assegnamento(K1,N), K!=K1.
+
+
+
+% Verifica che gli insiemi siano liberi da somma
+somma (K,N) :-  assegnamento(K,N1), assegnamento(K,N2), N=N1+N2.
+
+
+:- somma(K,N), assegnamento(K,N).
+
+
+
+
+
+
+
+
+
+
+
+

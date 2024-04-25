@@ -1,0 +1,36 @@
+
+
+col(0..3).
+row(0..3).
+tile(1..7).
+bad(3,0).
+bad(2,2).
+
+
+%% generating possible solutions, each tile has to be assigned to a two cells
+cell(I,J,T) | nocell(I,J,T):- col(I), row(J), tile(T).
+%% Non è possibile che non siano coperti tutti gli spazi della matrice con celle
+:- not #count{I,J,T: cell(I,J,T)} = 14.
+
+
+
+:- tile(T), not #count{I,J: cell(I,J,T)} = 2.
+:- bad(I,J), cell(I,J,T).
+
+:- cell(I,J,T), cell(I,J,T1), T!=T1.
+
+
+:- cell(I,J,T), cell(I1,J1,T), I!=I1, J!=J1.
+
+%% le celle devono essere posizionate in modo adiacente
+adj(I,J,I1,J1):- cell(I,J,T), cell(I1,J1,T), I-I1=1, J-J1=0.
+adj(I,J,I1,J1):- cell(I,J,T), cell(I1,J1,T), I-I1=-1, J-J1=0.
+
+
+
+
+
+
+
+
+

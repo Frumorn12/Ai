@@ -1,0 +1,18 @@
+•An interval X of numbers is called sum-free if the sum of two elements of X never belongs to X.
+•the interval [5, . . . , 9] is sum-free; the interval [4, . . . , 9] is not (4 + 4 = 8, 4 + 5 = 9).
+The Schur number S(k) is the largest integer n for which the interval [1,n] can be partitioned into k sum-free sets.
+
+Idea: write a program for checking if a number n is the S(k) number
+•no answer sets means that S(k)=n-1
+•Otherwise, S(k)>=n
+
+Representation:
+•the number of sets and the interval
+•The assignment of numbers to sets
+Generating a possible solution:
+•Partition {1 ,.. , n } intok subsets.
+
+Checking for a solution via constraints:
+•subsets haveto be sum - free
+No many Schur numbers are known:
+  S(1)=1, S(2)=4, S(3)=13, S(4)=44, S(5)>=160.
