@@ -2,7 +2,7 @@
 
 ## Esercizi lezioni 
 
-In "https://github.com/Frumorn12/Ai/tree/main/Esercizi%20Lezioni" troviamo degli esercizi svolti in aula raggruppati.
+In https://github.com/Frumorn12/Ai/tree/c2ae519f5ab2e785b4dafb7eee30aaaf3be2bf0c/Esercizi%20Lezioni troviamo degli esercizi svolti in aula raggruppati.
 
 ## Esercizi 
 
