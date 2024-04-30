@@ -1,1 +1,4 @@
 # Ai
+
+## Esercizi lezioni 
+
