@@ -1,0 +1,48 @@
+% Esercizio 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% zebra puzzle
+%
+% There are 5 houses each of a different colour: (RED, GREEN, 
+% IVORY, BLUE, YELLOW) and inhabited by a person of a particular 
+% nationality (Japanese, Englishman, Norwegian, Russian, Spaniard) 
+% with a particular pet (horse, snail, zebra, fox, dog), drink 
+% (water, coffee, tea, milk, orange juice) and brand of cigarettes 
+% (LuckyStrike, Winston, Chesterfields, Kools, Parliaments).
+% 
+% It is given that:
+% 
+% 1.	The Englishman lives in the RED house.
+% 2.	The Spaniard owns the dog.
+% 3.	The Norwegian lives in the first house on the left.
+% 4.	Kools are smoked in the YELLOW house.
+% 5.	The man who smokes Chesterfields lives in the house 
+%       next to the man with the fox.
+% 6.	The Norwegian lives next to the BLUE house.
+% 7.	The Winston smoker owns snails.
+% 8.	The LuckyStrike smoker drinks orange juice.
+% 9.	The Russian drinks tea.
+% 10.	The Japanese smokes Parliaments.
+% 11.	Kools are smoked in the house next to the house where 
+%       the horse is kept.
+% 12.	Coffee is drunk in the GREEN house.
+% 13.	The GREEN house is immediately to the right of the 
+%       IVORY house.
+% 14.	Milk is drunk in the middle house.
+% 
+% A zebra is found wandering in the streets and the animal 
+% shelter wants to find out who let the zebra out, that is, 
+% which house the zebra belongs to.
+% 
+% 
+% This famous problem has a unique solution, that follows:
+% 
+% Number 	cigarettes	country	colour	pet	drink
+% ==============================================================
+% 1	kools		Norway	yellow	fox	water
+% 2	chesterfields	Russia	blue	horse	tea
+% 3	winston		England	red	snails	milk
+% 4	luckyStrike	Spain	ivory	dog	orange juice
+% 5	parliaments  	Japan	green	zebra	coffee
+
+
+
