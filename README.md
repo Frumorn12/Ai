@@ -19,3 +19,8 @@ In https://github.com/Frumorn12/Ai/tree/main/Esercizi%20completi%20asp troviamo 
 Appunti : https://docs.google.com/document/d/17ztyqxvUIt2lOLlsmDGJeE907550977oWfXo-KUjTXI/edit?usp=sharing
 
 Riassunti : https://docs.google.com/document/d/1nxFux1QAAfInkTXk1PH0Zk535l5NZx96Pu8o4d3Yal4/edit?usp=sharing
+
+## Comandi utili
+
+Per avviare il programma
+<pre>"./dv2 < path -n=0"</pre>
