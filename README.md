@@ -23,4 +23,4 @@ Riassunti : https://docs.google.com/document/d/1nxFux1QAAfInkTXk1PH0Zk535l5NZx96
 ## Comandi utili
 
 Per avviare il programma
-<pre>./dv2 < path -n=0</pre>
+<pre>./dlv2 < path -n=0</pre>
